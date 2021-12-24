@@ -12,7 +12,8 @@ import torch
 import matplotlib.pyplot as plt
 import math
 from numpy.lib.stride_tricks import as_strided as ast
-from skimage.measure import structural_similarity as ssim
+from skimage.metrics import structural_similarity as ssim
+# from skimage.measure import structural_similarity as ssim
 # from skimage.measure import compare_ssim as ssim
 from skimage.measure import compare_psnr as psnr
          
