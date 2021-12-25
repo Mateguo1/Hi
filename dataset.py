@@ -25,10 +25,17 @@ def loadSubjectData(path):
     img_t2    = data_imgs['data_img']['t2'][0][0].astype(np.float32)
     
     # crop 160*180 images
-    img_t1    = img_t1[40:200,20:200,:]
-    img_t1ce  = img_t1ce[40:200,20:200,:]
-    img_t2    = img_t2[40:200,20:200,:]
-    img_flair = img_flair[40:200,20:200,:]
+    if len(img_t1.shape) == 3:
+        img_t1    = img_t1[40:200,20:200,:]
+        img_t1ce  = img_t1ce[40:200,20:200,:]
+        img_t2    = img_t2[40:200,20:200,:]
+        img_flair = img_flair[40:200,20:200,:]
+
+    elif len(img_t1.shape) == 3:
+        img_t1    = img_t1[40:200,20:200]
+        img_t1ce  = img_t1ce[40:200,20:200]
+        img_t2    = img_t2[40:200,20:200]
+        img_flair = img_flair[40:200,20:200]
                
     return img_t1,img_t1ce,img_t2,img_flair
 
