@@ -31,7 +31,7 @@ def loadSubjectData(path):
         img_t2    = img_t2[40:200,20:200,:]
         img_flair = img_flair[40:200,20:200,:]
 
-    elif len(img_t1.shape) == 3:
+    elif len(img_t1.shape) == 2:
         img_t1    = img_t1[40:200,20:200]
         img_t1ce  = img_t1ce[40:200,20:200]
         img_t2    = img_t2[40:200,20:200]
