@@ -102,8 +102,8 @@ class LatentSynthModel():
                 # define diferent synthesis tasks
                 [x1,x2,x3] = model_task(inputs,self.opt.task_id) # train different synthesis task
                 
-                fake  = torch.zeros([inputs[0].shape[1]*inputs[0].shape[0],1,6,6], requires_grad=False) #.cuda()
-                valid = torch.ones([inputs[0].shape[1]*inputs[0].shape[0],1,6,6], requires_grad=False)#.cuda()
+                fake  = torch.zeros([inputs[0].shape[1]*inputs[0].shape[0],1,6,6], requires_grad=False).cuda()
+                valid = torch.ones([inputs[0].shape[1]*inputs[0].shape[0],1,6,6], requires_grad=False).cuda()
                               
                 ###############################################################                     
                 if self.opt.use_gpu:
