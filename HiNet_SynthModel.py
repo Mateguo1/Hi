@@ -135,7 +135,7 @@ class LatentSynthModel():
             
                 loss_G.backward(retain_graph=True)
                 optimizer_G.step()
-            
+
                 # ----------------------
                 #  Train Discriminators
                 # ----------------------
@@ -148,7 +148,7 @@ class LatentSynthModel():
                 # Total loss
                 loss_D = (loss_real + loss_fake) / 2
         
-                loss_D.backward(retain_graph=True)
+                loss_D.backward()
                 optimizer_D.step()
                 
                 # time
