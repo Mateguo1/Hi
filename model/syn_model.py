@@ -104,8 +104,10 @@ class Multi_modal_generator(nn.Module):
         self.final_out_dim = output_nc
         
         # activate function
-        act_fn = nn.LeakyReLU(0.2, inplace=True)
-        act_fn2 = nn.ReLU(inplace=True) 
+        # act_fn = nn.LeakyReLU(0.2, inplace=True)
+        # act_fn2 = nn.ReLU(inplace=True) 
+        act_fn = nn.LeakyReLU(0.2)
+        act_fn2 = nn.ReLU() 
 
         # ~~~~~~ Encoding Part ~~~~~~ #
         
@@ -209,6 +211,7 @@ class Multi_modal_generator(nn.Module):
         # inputs devision
         i0 = inputs[:,0:1,:,:]
         i1 = inputs[:,1:2,:,:]
+        
         
         ############## Encoding Part ##############
         # -----  First Level -------- 

@@ -11,9 +11,9 @@ class DefaultConfig(object):
     lr_decay        = 0.95 # when val_loss increase, lr = lr*lr_decay
     weight_decay    = 1e-4 # 
     
-    batch_size      = 1 # batch size
-    epochs          = 400
-    decay_epoch     = 100
+    batch_size      = 16 # batch size
+    epochs          = 100
+    decay_epoch     = 25
     dropout         = 0.5
     
     fold            = 0

@@ -98,7 +98,7 @@ class LatentSynthModel():
         for epoch in range(self.opt.epochs):      
             for ii, inputs in enumerate(train_loader):
                 print(ii)
-                
+
                 # define diferent synthesis tasks
                 [x1,x2,x3] = model_task(inputs,self.opt.task_id) # train different synthesis task
                 
@@ -110,7 +110,7 @@ class LatentSynthModel():
                     x1   = x1.cuda()
                     x2   = x2.cuda()
                     x3   = x3.cuda()
-                    
+                
                 x_fu = torch.cat([x1,x2],dim=1)
 
                 # ----------------------
@@ -132,9 +132,9 @@ class LatentSynthModel():
                 # total loss
                 loss_G = loss_GAN + 100*loss_re3 + 20*loss_re1 + 20*loss_re2
                 
-            
+                
                 loss_G.backward(retain_graph=True)
-                optimizer_G.step()
+                # optimizer_G.step()
 
                 # ----------------------
                 #  Train Discriminators
@@ -147,8 +147,9 @@ class LatentSynthModel():
                 loss_fake = criterion_GAN(self.discrimator(x_fake), fake)
                 # Total loss
                 loss_D = (loss_real + loss_fake) / 2
-        
+                
                 loss_D.backward()
+                optimizer_G.step()
                 optimizer_D.step()
                 
                 # time
